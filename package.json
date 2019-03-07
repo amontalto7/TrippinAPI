@@ -11,9 +11,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "lint": "eslint **/*.js --quiet",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "lint-staged": {
     "linters": {
@@ -33,6 +31,7 @@
     "chai-http": "^4.2.1",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
+    "eslint-plugin-react": "^7.12.4",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.2",
     "mocha": "^5.2.0",
