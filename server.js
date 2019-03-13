@@ -15,6 +15,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Connect to the Mongo DB
+// If deployed, use the deployed database. Otherwise use the local trippindb database
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/trippindb";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });

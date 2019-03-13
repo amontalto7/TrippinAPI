@@ -1,16 +1,11 @@
-var db = require("../models");
-
+module.exports= function(router){
 // REQUIRE AXIOS FOR API CALLS
-var axios = require("axios");
+// var axios = require("axios");  
+const phrase_controller = require("../controllers/phraseController");
+// const checklist_controller = require("../controllers/checklistController");
 
-module.exports = function(app) {
-  app.get("/api/phrases", function(req, res) {
-    db.Phrases.findAll().then(function(dbPhrases) {
-      res.json(dbPhrases);
-    });
-  });
-
-  //   app.get("/api/checklist", function(req, res) {
-  // ...
-  // });
-};
+  router.get("/api/phrases", phrase_controller.phrase_list_get);
+  // http://localhost:3001/api/phrases
+  
+  //   router.get("/api/checklist", phrase_controller.checklist_get)
+}
