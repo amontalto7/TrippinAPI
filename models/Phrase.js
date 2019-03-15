@@ -20,26 +20,14 @@ var PhraseSchema = new Schema({
     required: true,
     default: "en"
   },
-  saved: {
+  default: {
     type: Boolean,
     default: false
   },
   dateAdded: {
     type: Date,
     default: Date.now
-  },
-
-  // `notes` is an array that stores ObjectIds
-  // The ref property links these ObjectIds to the Note model
-  // This allows us to populate the User with any associated Notes
-  notes: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Note model
-      ref: "Note"
-    }
-  ]
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method

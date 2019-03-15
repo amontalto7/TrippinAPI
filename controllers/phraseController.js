@@ -34,19 +34,19 @@ exports.populate_default_phrases = function(req, res) {
     "I want that",
     "What is this?",
     "I don't understand",
-    "My name is",
+    "My name is John",
+    "What is your name?",
     "Where is the bathroom?",
     "How much does it cost?",
     "Yes",
     "No",
     "Taxi",
-    "Street",
     "Hotel",
     "Restaurant"
   ];
 
   defaultPhrases.forEach(function(item){
-    var thisPhrase = new Phrase({ phrase: item });
+    var thisPhrase = new Phrase({ phrase: item, default: true });
     thisPhrase.save(function (err, p) {
       if (err) return console.error(err);
       console.log("'" + p.phrase + "' saved to phrases collection.");
