@@ -4,9 +4,8 @@
   "description": "Trippin Server",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "node server.js",
     "start:dev": "nodemon server.js",
-    "heroku-postbuild": "npm run build",
     "test": "cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "lint-staged": {
@@ -48,5 +47,8 @@
     "lint-staged": {
       "pre-commit": "npm run fix"
     }
+  },
+  "engines":{
+    "node": "10.x"
   }
 }
