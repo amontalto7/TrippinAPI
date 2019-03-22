@@ -1,4 +1,6 @@
-let countriesList = [];
+let apiObj = {};
+apiObj.countriesList = [];
+let countriesList = apiObj.countriesList;
 
 const Parser = require("rss-parser");
 const parser = new Parser();
@@ -28,8 +30,10 @@ const parser = new Parser();
 })();
 
 module.exports = {
+  apiObj: apiObj,
   countriesList: countriesList
 };
+
 //=============================================================================================
 //=============================================================================================
 //=============================================================================================

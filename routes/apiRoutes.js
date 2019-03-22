@@ -16,14 +16,11 @@ module.exports = function(router) {
   );
   //localhost:3001/api/populate_phrases
 
-  http: router.get(
-    "/api/travel_advisories",
-    bodyParser.urlencoded({ extended: false }),
-    (req, res) => {
-      console.log(travel_advisories.countriesList);
-      res.send(travel_advisories.countriesList);
-    }
-  );
+  router.get("/api/travel_advisories", (req, res) => {
+    console.log(travel_advisories.countriesList);
+    res.send(travel_advisories.apiObj);
+  });
+
   //http://localhost:3001/api/travel_advisories
 
   //   router.get("/api/checklist", phrase_controller.checklist_get)
