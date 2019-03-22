@@ -41,14 +41,15 @@
     "mongoose": "^5.4.19",
     "morgan": "^1.9.1",
     "path": "^0.12.7",
-    "prettier": "^1.16.3"
+    "prettier": "^1.16.3",
+    "rss-parser": "^3.7.0"
   },
   "husky": {
     "lint-staged": {
       "pre-commit": "npm run fix"
     }
   },
-  "engines":{
+  "engines": {
     "node": "10.x"
   }
 }

@@ -12,9 +12,9 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Connect to the Mongo DB
 // If deployed, use the deployed database. Otherwise use the local trippindb database
@@ -24,8 +24,8 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Define API routes here
 require("./routes/apiRoutes.js")(app);
-app.get('/test', (req, res, next) =>{
-  res.send('success')
+app.get("/test", (req, res, next) => {
+  res.send("success");
 });
 
 // Send every other request to the React app
