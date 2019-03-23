@@ -17,8 +17,9 @@ module.exports = function(router) {
   //localhost:3001/api/populate_phrases
 
   router.get("/api/travel_advisories", (req, res) => {
-    console.log(travel_advisories.countriesList);
+    // console.log(travel_advisories.countriesList);
     res.send(travel_advisories.apiObj);
+    console.log("api request sucessful");
   });
 
   //http://localhost:3001/api/travel_advisories

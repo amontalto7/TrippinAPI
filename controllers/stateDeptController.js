@@ -1,6 +1,7 @@
 let apiObj = {};
 apiObj.countriesList = [];
 let countriesList = apiObj.countriesList;
+let Axios = require("axios");
 
 const Parser = require("rss-parser");
 const parser = new Parser();
@@ -17,14 +18,16 @@ const parser = new Parser();
       content: item.content,
       title: item.title,
       level: level,
-      link: item.link
+      link: item.link,
+      flagUrl: item.flagUrl
     };
 
     countriesList.push(countryProfile);
   });
 
   countriesList.forEach(item => {
-    item.country = item.country.toString();
+    item.country = item.country.toString().trim();
+    item.countrySearchable = item.country.toLowerCase().replace(/\s/g, "");
     item.level = parseInt(item.level);
   });
 })();
