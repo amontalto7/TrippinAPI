@@ -35,20 +35,22 @@
   "dependencies": {
     "async": "^2.6.2",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.4.19",
     "morgan": "^1.9.1",
     "path": "^0.12.7",
-    "prettier": "^1.16.3"
+    "prettier": "^1.16.3",
+    "rss-parser": "^3.7.0"
   },
   "husky": {
     "lint-staged": {
       "pre-commit": "npm run fix"
     }
   },
-  "engines":{
+  "engines": {
     "node": "10.x"
   }
 }
