@@ -10,7 +10,7 @@ var PhraseSchema = new Schema({
   phrase: {
     type: String,
     required: true,
-    unique: true
+    unique: true  
   },
   customTranslation: {
     type: String
