@@ -1,4 +1,4 @@
-module.exports = function(router) {
+module.exports = function (router) {
   // REQUIRE AXIOS FOR API CALLS
   // var axios = require("axios");
   const phrase_controller = require("../controllers/phraseController");
@@ -21,6 +21,9 @@ module.exports = function(router) {
     res.send(travel_advisories.apiObj);
     console.log("api request sucessful");
   });
+
+  router.get("/api/phrases_translated", phrase_controller.translate);
+  // http://localhost:3001/api/phrases_translated
 
   //http://localhost:3001/api/travel_advisories
 

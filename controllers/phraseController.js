@@ -1,27 +1,40 @@
 const Phrase = require("../models/Phrase");
+const axios = require("axios");
+
 
 // Get all phrases, populated with notes
-exports.phrase_list_get = function(req, res) {
+exports.phrase_list_get = function (req, res) {
   Phrase.find()
-  // .populate("notes")
-  .then(function(dbPhrases) {
-    // If all Notes are successfully found, send them back to the client
-    res.json(dbPhrases);
-  })
-  .catch(function(err) {
-    // If an error occurs, send the error back to the client
-    res.json(err);
-  });
-  
+    // .populate("notes")
+    .then(function (dbPhrases) {
+      // If all Notes are successfully found, send them back to the client
+      res.json(dbPhrases);
+    })
+    .catch(function (err) {
+      // If an error occurs, send the error back to the client
+      res.json(err);
+    });
+
 };
 
+// Translate function
+exports.translate = function (req, res) {
+  axios.get("https://trippin-api-2019.herokuapp.com/api/phrases")
+    .then(async response => {
+      console.log(res)
+
+    });
+}
+
+
+
 // return a single phrase
-exports.phrase = function(req, res) {
+exports.phrase = function (req, res) {
   res.send("NOT IMPLEMENTED: Get single phrase")
 };
 
 // Populate default phrases
-exports.populate_default_phrases = function(req, res) {
+exports.populate_default_phrases = function (req, res) {
 
   const defaultPhrases = [
     "Hello",
@@ -45,12 +58,12 @@ exports.populate_default_phrases = function(req, res) {
     "Restaurant"
   ];
 
-  defaultPhrases.forEach(function(item){
+  defaultPhrases.forEach(function (item) {
     var thisPhrase = new Phrase({ phrase: item, default: true });
     thisPhrase.save(function (err, p) {
       if (err) return console.error(err);
       console.log("'" + p.phrase + "' saved to phrases collection.");
-    }) 
+    })
   })
   res.send("Phrases added. Check console for details");
 }
