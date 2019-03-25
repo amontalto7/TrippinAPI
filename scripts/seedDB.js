@@ -71,11 +71,11 @@ const checklistSeed = [
 ];
 
 db.Checklist.deleteMany({})
-  .then(() => db.Checklist.insertMany(checklistSeed))
-  // .then(data => {
-  //   console.log(data.result.n + " records inserted!");
-  //   process.exit(0);
-  // })
+  .then(() => db.Checklist.insertMany(checklistSeed, { rawResult: true }))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
   .catch(err => {
     console.error(err);
     process.exit(1);
