@@ -4,7 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const logger = require("morgan");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
 // Define middleware here
 app.use(logger("dev"));
@@ -18,9 +18,9 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 // If deployed, use the deployed database. Otherwise use the local trippindb database
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/trippindb";
+// let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/trippindb";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Define API routes here
 require("./routes/apiRoutes.js")(app);

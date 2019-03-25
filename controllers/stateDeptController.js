@@ -1,7 +1,6 @@
-let apiObj = {};
-apiObj.countriesList = [];
-let countriesList = apiObj.countriesList;
+let data = [];
 let Axios = require("axios");
+let apiObj = { data };
 
 const Parser = require("rss-parser");
 const parser = new Parser();
@@ -13,7 +12,7 @@ const parser = new Parser();
   feed.items.forEach(item => {
     let country = item.title.match(/.+?(?= -)/gm);
     let level = item.title.match(/([0-9])/gm);
-    let countryProfile = {
+    let profile = {
       country: country,
       content: item.content,
       title: item.title,
@@ -22,10 +21,10 @@ const parser = new Parser();
       flagUrl: item.flagUrl
     };
 
-    countriesList.push(countryProfile);
+    data.push(profile);
   });
 
-  countriesList.forEach(item => {
+  data.forEach(item => {
     item.country = item.country.toString().trim();
     item.countrySearchable = item.country.toLowerCase().replace(/\s/g, "");
     item.level = parseInt(item.level);
@@ -33,8 +32,8 @@ const parser = new Parser();
 })();
 
 module.exports = {
-  apiObj: apiObj,
-  countriesList: countriesList
+  data: data,
+  apiObj: apiObj
 };
 
 //=============================================================================================
