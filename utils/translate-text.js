@@ -2,6 +2,8 @@ require('dotenv').config();
 const request = require('request');
 const uuidv4 = require('uuid/v4');
 require('./language_recognition.js')
+const phrase_controller = require("../controllers/phraseController");
+
 /* Checks to see if the subscription key is available
 as an environment variable. If you are setting your subscription key as a
 string, then comment these lines out.
@@ -29,7 +31,11 @@ const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
 //     "Restaurant"
 // ];
 
-function translate(language) {
+async function translate(language, phrases) {
+    // console.log("im here", language);
+    // const phrases = await phrase_controller.phrase_list_get(false, false);
+    // console.log(phrases);
+    const translatedPhrases = [];
     for (let i = 0; i < phrases.length; i++) {
 
         if (!subscriptionKey) {
@@ -57,15 +63,23 @@ function translate(language) {
             json: true
         };
 
-        request(options, function (err, res, body) {
+        await request(options, function (err, res, body) {
+            translatedPhrases.push(body[0].translations[0].text);
+            while (translatedPhrases.length >= phrases.length) {
+                console.log(translatedPhrases);
+                if (translatedPhrases.length === phrases.length) {
+                    break;
+                }
+            }
+            // console.log(translatedPhrases);
             // console.log(phrases[i]);
             // console.log(body);
-            console.log(JSON.stringify(body, null, 5));
+            // console.log("English: " + phrases[i] + "   " + "French" + ": " + JSON.stringify(body[0].translations[0].text, null, 5));
             // console.log("--------------------------------");
         });
     }
+    // console.log(translatedPhrases);
 };
-
 
 module.exports = translate;
 

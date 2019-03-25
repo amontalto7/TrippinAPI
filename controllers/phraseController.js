@@ -1,21 +1,37 @@
 const Phrase = require("../models/Phrase");
 const axios = require("axios");
+const locRecog = require("../utils/location-recognition");
 
 // Get all phrases, populated with notes
 exports.phrase_list_get = function(req, res) {
-  Phrase.find()
-    // .populate("notes")
-    .then(dbPhrases => res.json(dbPhrases))
-    .catch(err => res.json(err));
+  console.log("hello");
+  return (
+    Phrase.find()
+      // .populate("notes")
+      .then(function(dbPhrases) {
+        console.log("bye");
+        if (res === false) return dbPhrases;
+        // If all Notes are successfully found, send them back to the client
+        res.json(dbPhrases);
+      })
+      .catch(function(err) {
+        // If an error occurs, send the error back to the client
+        res.json(err);
+      })
+  );
 };
 
 // Translate function
 exports.translate = function(req, res) {
-  axios
-    .get("https://trippin-api-2019.herokuapp.com/api/phrases")
-    .then(async response => {
-      console.log(res);
-    });
+  Phrase.find().then(function(dbPhrases) {
+    const phrases = dbPhrases.map(item => item.phrase);
+    locRecog(phrases);
+  });
+  // axios.get("https://trippin-api-2019.herokuapp.com/api/phrases")
+  //   .then(async response => {
+  //     // console.log(res)
+
+  //   });
 };
 
 // return a single phrase
