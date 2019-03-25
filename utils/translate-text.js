@@ -65,13 +65,20 @@ async function translate(language, phrases) {
 
         await request(options, function (err, res, body) {
             translatedPhrases.push(body[0].translations[0].text);
+            while (translatedPhrases.length >= phrases.length) {
+                console.log(translatedPhrases);
+                if (translatedPhrases.length === phrases.length) {
+                    break;
+                }
+            }
+            // console.log(translatedPhrases);
             // console.log(phrases[i]);
             // console.log(body);
             // console.log("English: " + phrases[i] + "   " + "French" + ": " + JSON.stringify(body[0].translations[0].text, null, 5));
             // console.log("--------------------------------");
         });
     }
-    console.log(translatedPhrases);
+    // console.log(translatedPhrases);
 };
 
 module.exports = translate;
