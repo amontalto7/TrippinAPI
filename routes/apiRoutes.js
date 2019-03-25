@@ -1,6 +1,6 @@
 module.exports = function(router) {
   // REQUIRE AXIOS FOR API CALLS
-  var axios = require("axios");
+  // var axios = require("axios");
   // const phrase_controller = require("../controllers/phraseController");
   const travel_advisories = require("../controllers/stateDeptController");
   const bodyParser = require("body-parser");
