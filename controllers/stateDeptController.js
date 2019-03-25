@@ -1,24 +1,22 @@
 let data = [];
 let Axios = require("axios");
-let apiObj = { data };
 
 const Parser = require("rss-parser");
+let countryCount = 0;
 const parser = new Parser();
 (async () => {
   let feed = await parser.parseURL(
     "https://travel.state.gov/_res/rss/TAsTWs.xml"
   );
-
   feed.items.forEach(item => {
-    let country = item.title.match(/.+?(?= -)/gm);
-    let level = item.title.match(/([0-9])/gm);
+    countryCount++;
     let profile = {
-      country: country,
+      countryIndex: countryCount,
+      country: item.title.match(/.+?(?= -)/gm),
       content: item.content,
       title: item.title,
-      level: level,
-      link: item.link,
-      flagUrl: item.flagUrl
+      level: item.title.match(/([0-9])/gm),
+      link: item.link
     };
 
     data.push(profile);
@@ -32,8 +30,7 @@ const parser = new Parser();
 })();
 
 module.exports = {
-  data: data,
-  apiObj: apiObj
+  data: data
 };
 
 //=============================================================================================
