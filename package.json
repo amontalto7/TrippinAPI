@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "async": "^2.6.2",
+    "async-request": "^1.2.0",
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.3",

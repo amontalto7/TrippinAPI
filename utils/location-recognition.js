@@ -6,11 +6,11 @@ var URL = "https://www.ipapi.co/";
 URL += "json";
 
 
-module.exports = (phrases) => axios.get(URL).then(async () => {
+module.exports = (phrases, req, res) => axios.get(URL).then(async () => {
     // const geoLoc = await recogLang(response.data.ip);
     // console.log(phrases);
     const geoLoc = await recogLang("77.136.14.169");
     // console.log("geoLoc");
-    translate(geoLoc.countryCode, phrases);
+    translate(geoLoc.countryCode, phrases, req, res);
 
 });
