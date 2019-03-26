@@ -22,11 +22,12 @@ exports.phrase_list_get = function(req, res) {
 };
 
 // Translate function
-exports.translate = function(req, res) {
-  Phrase.find().then(function(dbPhrases) {
-    const phrases = dbPhrases.map(item => item.phrase);
-    locRecog(phrases);
-  });
+exports.translate = function (req, res) {
+  Phrase.find()
+    .then(function (dbPhrases) {
+      const phrases = dbPhrases.map(item => item);
+      locRecog(phrases, req, res);
+    })
   // axios.get("https://trippin-api-2019.herokuapp.com/api/phrases")
   //   .then(async response => {
   //     // console.log(res)
