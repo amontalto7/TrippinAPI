@@ -1,14 +1,18 @@
-module.exports = function (router) {
+module.exports = function(router) {
   // REQUIRE AXIOS FOR API CALLS
   // var axios = require("axios");
   const phrase_controller = require("../controllers/phraseController");
   const travel_advisories = require("../controllers/stateDeptController");
+  const checklist_controller = require("../controllers/checklistController");
   const bodyParser = require("body-parser");
 
   // const checklist_controller = require("../controllers/checklistController");
 
   router.get("/api/phrases", phrase_controller.phrase_list_get);
   // http://localhost:3001/api/phrases
+
+  router.get("/api/checklist", checklist_controller.checklist_get);
+  // http://localhost:3001/api/checklist
 
   router.get(
     "/api/populate_phrases",
