@@ -7,10 +7,10 @@ var access_key = process.env.ACCESS_KEY;
 
 function recogLang(ip) {
     var queryURL = 'http://api.ipstack.com/' + ip + '?access_key=' + access_key;
-    console.log(access_key);
+    console.log(queryURL);
     return axios.get(queryURL).then(
         function (response) {
-            // console.log(response.data);
+            console.log(response.data.location[0]);
             // console.log(" Country Code: " + response.data.location.languages[0].code);
             // console.log("English to " + response.data.location.languages[0].name);
             const countryCode = response.data.location.languages[0].code;
