@@ -7,7 +7,7 @@ var access_key = process.env.ACCESS_KEY;
 
 function recogLang(ip) {
     var queryURL = 'http://api.ipstack.com/' + ip + '?access_key=' + access_key;
-    // console.log(access_key);
+    console.log(access_key);
     return axios.get(queryURL).then(
         function (response) {
             // console.log(response.data);
