@@ -57,7 +57,7 @@ const checklistSeed = [
     item: "Set Credit Card travel notifications"
   },
   {
-    item: "Next Pillow"
+    item: "Neck Pillow"
   },
   {
     item: "Hiking Boots"
