@@ -67,6 +67,9 @@ const checklistSeed = [
   },
   {
     item: "Offline maps downloaded"
+  },
+  {
+    item: "Sunscreen"
   }
 ];
 
