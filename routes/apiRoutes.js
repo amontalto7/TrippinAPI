@@ -14,6 +14,9 @@ module.exports = function(router) {
   router.get("/api/checklist", checklist_controller.checklist_get);
   // http://localhost:3001/api/checklist
 
+  // router.put("/api/checklist/:id", checklist_controller.checklist_toggle);
+  // http://localhost:3001/api/checklist
+
   router.get(
     "/api/populate_phrases",
     phrase_controller.populate_default_phrases
