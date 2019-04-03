@@ -64,7 +64,7 @@ Carlos Garcia: https://www.linkedin.com/in/carlos-m-garcia-89a65116a/ Github: ht
 
 Jennifer Rubin: https://www.linkedin.com/in/jennifer-rubin-18218317a/ Github: https://github.com/jrubin9326
 
-Ulrich Todman: https://www.linkedin.com/in/ulric-todman/ Github: https://github.com/ricksinclair
+Ulric Todman: https://www.linkedin.com/in/ulric-todman/ Github: https://github.com/ricksinclair
 
 Vernaliz Gonzalez: www.linkedin.com/in/vernagonzalez Github: https://github.com/verna100
 
