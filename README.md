@@ -55,3 +55,16 @@ This project required the use of 2 repositories as we created one to store all n
 
 That repo is located here: https://github.com/amontalto7/TrippinMobileApp
 
+
+App Contributors:
+
+Anthony Montalto: https://www.linkedin.com/in/anthonymontalto/ Github: https://github.com/amontalto7
+
+Carlos Garcia: https://www.linkedin.com/in/carlos-m-garcia-89a65116a/ Github: https://github.com/cgarcia101015
+
+Jennifer Rubin: https://www.linkedin.com/in/jennifer-rubin-18218317a/ Github: https://github.com/jrubin9326
+
+Ulrich Todman: https://www.linkedin.com/in/ulric-todman/ Github: https://github.com/ricksinclair
+
+Vernaliz Gonzalez: www.linkedin.com/in/vernagonzalez Github: https://github.com/verna100
+
