@@ -37,3 +37,6 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+// Export our app for testing purposes
+module.exports = app;
