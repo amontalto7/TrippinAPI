@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+mongoose.set("useCreateIndex", true);
 
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
@@ -10,7 +11,7 @@ var PhraseSchema = new Schema({
   phrase: {
     type: String,
     required: true,
-    unique: true  
+    unique: true
   },
   customTranslation: {
     type: String

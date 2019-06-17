@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+mongoose.set("useCreateIndex", true);
 
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
