@@ -25,3 +25,10 @@ exports.checklist_add = function(req, res) {
     .then(dbItem => res.json(dbItem))
     .catch(err => res.json(err));
 };
+
+// Delete a checklist item
+exports.checkitem_delete = function(req, res) {
+  Checklist.deleteOne({ _id: req.params.id })
+    .then(dbChecklistItem => res.json(dbChecklistItem))
+    .catch(err => res.json(err));
+};

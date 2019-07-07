@@ -17,7 +17,9 @@ module.exports = function(router) {
   router.put("/api/checkitem/:id", checklist_controller.checkitem_toggle);
   // http://localhost:3001/api/checkitem:5c9eaae768601f947c4862f6
 
-  router.post("/api/addchecklist/", checklist_controller.checklist_add);
+  router.post("/api/addchecklist", checklist_controller.checklist_add);
+
+  router.delete("/api/delchecklist/:id", checklist_controller.checkitem_delete);
 
   router.get(
     "/api/populate_phrases",
